@@ -56,23 +56,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tpSystem = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.tbTransName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbAutoRun = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.lbSystemVersion = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.tbTurnoffOrRebootTime = new System.Windows.Forms.TextBox();
+            this.lbTurnoffOrRebootTime = new System.Windows.Forms.Label();
+            this.rbCloseSwitch = new System.Windows.Forms.RadioButton();
+            this.rbReboot = new System.Windows.Forms.RadioButton();
+            this.rbTurnoff = new System.Windows.Forms.RadioButton();
             this.tpTerminal = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbIsUseNetwork = new System.Windows.Forms.CheckBox();
+            this.tbTPDU = new System.Windows.Forms.TextBox();
+            this.tbMerchantNo = new System.Windows.Forms.TextBox();
+            this.tbTerminalNo = new System.Windows.Forms.TextBox();
+            this.tbServerPort = new System.Windows.Forms.TextBox();
+            this.tbServerIP = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -80,6 +83,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReboot = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpHardware.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -476,30 +480,50 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.checkBox5);
+            this.groupBox7.Controls.Add(this.tbTransName);
+            this.groupBox7.Controls.Add(this.label1);
+            this.groupBox7.Controls.Add(this.cbAutoRun);
             this.groupBox7.Controls.Add(this.label15);
             this.groupBox7.Controls.Add(this.lbSystemVersion);
             this.groupBox7.Location = new System.Drawing.Point(46, 107);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(323, 143);
+            this.groupBox7.Size = new System.Drawing.Size(323, 183);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "系统配置";
             // 
-            // checkBox5
+            // tbTransName
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(51, 83);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(84, 16);
-            this.checkBox5.TabIndex = 2;
-            this.checkBox5.Text = "开机自启动";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.tbTransName.Location = new System.Drawing.Point(95, 36);
+            this.tbTransName.Name = "tbTransName";
+            this.tbTransName.ReadOnly = true;
+            this.tbTransName.Size = new System.Drawing.Size(182, 21);
+            this.tbTransName.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "业务名：";
+            // 
+            // cbAutoRun
+            // 
+            this.cbAutoRun.AutoSize = true;
+            this.cbAutoRun.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbAutoRun.Location = new System.Drawing.Point(38, 127);
+            this.cbAutoRun.Name = "cbAutoRun";
+            this.cbAutoRun.Size = new System.Drawing.Size(107, 20);
+            this.cbAutoRun.TabIndex = 2;
+            this.cbAutoRun.Text = "开机自启动";
+            this.cbAutoRun.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(49, 43);
+            this.label15.Location = new System.Drawing.Point(36, 87);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 0;
@@ -508,7 +532,7 @@
             // lbSystemVersion
             // 
             this.lbSystemVersion.AutoSize = true;
-            this.lbSystemVersion.Location = new System.Drawing.Point(120, 43);
+            this.lbSystemVersion.Location = new System.Drawing.Point(107, 87);
             this.lbSystemVersion.Name = "lbSystemVersion";
             this.lbSystemVersion.Size = new System.Drawing.Size(41, 12);
             this.lbSystemVersion.TabIndex = 1;
@@ -517,11 +541,11 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label17);
-            this.groupBox6.Controls.Add(this.textBox6);
-            this.groupBox6.Controls.Add(this.label16);
-            this.groupBox6.Controls.Add(this.radioButton3);
-            this.groupBox6.Controls.Add(this.radioButton2);
-            this.groupBox6.Controls.Add(this.radioButton1);
+            this.groupBox6.Controls.Add(this.tbTurnoffOrRebootTime);
+            this.groupBox6.Controls.Add(this.lbTurnoffOrRebootTime);
+            this.groupBox6.Controls.Add(this.rbCloseSwitch);
+            this.groupBox6.Controls.Add(this.rbReboot);
+            this.groupBox6.Controls.Add(this.rbTurnoff);
             this.groupBox6.Location = new System.Drawing.Point(478, 107);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(323, 143);
@@ -538,54 +562,60 @@
             this.label17.TabIndex = 5;
             this.label17.Text = "时间格式提示： 01：00：00";
             // 
-            // textBox6
+            // tbTurnoffOrRebootTime
             // 
-            this.textBox6.Location = new System.Drawing.Point(101, 78);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(171, 21);
-            this.textBox6.TabIndex = 4;
+            this.tbTurnoffOrRebootTime.Location = new System.Drawing.Point(101, 78);
+            this.tbTurnoffOrRebootTime.Name = "tbTurnoffOrRebootTime";
+            this.tbTurnoffOrRebootTime.Size = new System.Drawing.Size(171, 21);
+            this.tbTurnoffOrRebootTime.TabIndex = 4;
             // 
-            // label16
+            // lbTurnoffOrRebootTime
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(30, 81);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 12);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "关机时间：";
+            this.lbTurnoffOrRebootTime.AutoSize = true;
+            this.lbTurnoffOrRebootTime.Location = new System.Drawing.Point(30, 81);
+            this.lbTurnoffOrRebootTime.Name = "lbTurnoffOrRebootTime";
+            this.lbTurnoffOrRebootTime.Size = new System.Drawing.Size(65, 12);
+            this.lbTurnoffOrRebootTime.TabIndex = 3;
+            this.lbTurnoffOrRebootTime.Text = "关机时间：";
             // 
-            // radioButton3
+            // rbCloseSwitch
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(213, 39);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(59, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "不启用";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbCloseSwitch.AutoSize = true;
+            this.rbCloseSwitch.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbCloseSwitch.Location = new System.Drawing.Point(213, 39);
+            this.rbCloseSwitch.Name = "rbCloseSwitch";
+            this.rbCloseSwitch.Size = new System.Drawing.Size(74, 20);
+            this.rbCloseSwitch.TabIndex = 2;
+            this.rbCloseSwitch.TabStop = true;
+            this.rbCloseSwitch.Text = "不启用";
+            this.rbCloseSwitch.UseVisualStyleBackColor = true;
+            this.rbCloseSwitch.CheckedChanged += new System.EventHandler(this.rbCloseSwitch_CheckedChanged);
             // 
-            // radioButton2
+            // rbReboot
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(101, 39);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 16);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "重启";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbReboot.AutoSize = true;
+            this.rbReboot.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbReboot.Location = new System.Drawing.Point(101, 39);
+            this.rbReboot.Name = "rbReboot";
+            this.rbReboot.Size = new System.Drawing.Size(58, 20);
+            this.rbReboot.TabIndex = 1;
+            this.rbReboot.TabStop = true;
+            this.rbReboot.Text = "重启";
+            this.rbReboot.UseVisualStyleBackColor = true;
+            this.rbReboot.CheckedChanged += new System.EventHandler(this.rbReboot_CheckedChanged);
             // 
-            // radioButton1
+            // rbTurnoff
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(32, 39);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "关机";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbTurnoff.AutoSize = true;
+            this.rbTurnoff.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbTurnoff.Location = new System.Drawing.Point(32, 39);
+            this.rbTurnoff.Name = "rbTurnoff";
+            this.rbTurnoff.Size = new System.Drawing.Size(58, 20);
+            this.rbTurnoff.TabIndex = 0;
+            this.rbTurnoff.TabStop = true;
+            this.rbTurnoff.Text = "关机";
+            this.rbTurnoff.UseVisualStyleBackColor = true;
+            this.rbTurnoff.CheckedChanged += new System.EventHandler(this.rbTurnoff_CheckedChanged);
             // 
             // tpTerminal
             // 
@@ -599,11 +629,12 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.cbIsUseNetwork);
+            this.groupBox5.Controls.Add(this.tbTPDU);
+            this.groupBox5.Controls.Add(this.tbMerchantNo);
+            this.groupBox5.Controls.Add(this.tbTerminalNo);
+            this.groupBox5.Controls.Add(this.tbServerPort);
+            this.groupBox5.Controls.Add(this.tbServerIP);
             this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.label12);
@@ -616,45 +647,62 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "网络参数";
             // 
-            // textBox5
+            // cbIsUseNetwork
             // 
-            this.textBox5.Location = new System.Drawing.Point(582, 45);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(177, 21);
-            this.textBox5.TabIndex = 8;
+            this.cbIsUseNetwork.AutoSize = true;
+            this.cbIsUseNetwork.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbIsUseNetwork.Location = new System.Drawing.Point(31, 34);
+            this.cbIsUseNetwork.Name = "cbIsUseNetwork";
+            this.cbIsUseNetwork.Size = new System.Drawing.Size(91, 20);
+            this.cbIsUseNetwork.TabIndex = 9;
+            this.cbIsUseNetwork.Text = "是否启用";
+            this.cbIsUseNetwork.UseVisualStyleBackColor = true;
+            this.cbIsUseNetwork.CheckedChanged += new System.EventHandler(this.cbIsUseNetwork_CheckedChanged);
             // 
-            // textBox3
+            // tbTPDU
             // 
-            this.textBox3.Location = new System.Drawing.Point(343, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(177, 21);
-            this.textBox3.TabIndex = 7;
+            this.tbTPDU.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbTPDU.Location = new System.Drawing.Point(581, 74);
+            this.tbTPDU.Name = "tbTPDU";
+            this.tbTPDU.Size = new System.Drawing.Size(177, 23);
+            this.tbTPDU.TabIndex = 8;
             // 
-            // textBox4
+            // tbMerchantNo
             // 
-            this.textBox4.Location = new System.Drawing.Point(343, 45);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 21);
-            this.textBox4.TabIndex = 6;
+            this.tbMerchantNo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbMerchantNo.Location = new System.Drawing.Point(342, 112);
+            this.tbMerchantNo.Name = "tbMerchantNo";
+            this.tbMerchantNo.Size = new System.Drawing.Size(177, 23);
+            this.tbMerchantNo.TabIndex = 7;
             // 
-            // textBox2
+            // tbTerminalNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(101, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 21);
-            this.textBox2.TabIndex = 5;
+            this.tbTerminalNo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbTerminalNo.Location = new System.Drawing.Point(342, 74);
+            this.tbTerminalNo.Name = "tbTerminalNo";
+            this.tbTerminalNo.Size = new System.Drawing.Size(177, 23);
+            this.tbTerminalNo.TabIndex = 6;
             // 
-            // textBox1
+            // tbServerPort
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 21);
-            this.textBox1.TabIndex = 4;
+            this.tbServerPort.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbServerPort.Location = new System.Drawing.Point(100, 112);
+            this.tbServerPort.Name = "tbServerPort";
+            this.tbServerPort.Size = new System.Drawing.Size(177, 23);
+            this.tbServerPort.TabIndex = 5;
+            // 
+            // tbServerIP
+            // 
+            this.tbServerIP.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbServerIP.Location = new System.Drawing.Point(100, 74);
+            this.tbServerIP.Name = "tbServerIP";
+            this.tbServerIP.Size = new System.Drawing.Size(177, 23);
+            this.tbServerIP.TabIndex = 4;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(535, 48);
+            this.label14.Location = new System.Drawing.Point(534, 77);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 12);
             this.label14.TabIndex = 3;
@@ -663,7 +711,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(284, 48);
+            this.label13.Location = new System.Drawing.Point(283, 77);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 2;
@@ -672,7 +720,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(284, 86);
+            this.label12.Location = new System.Drawing.Point(283, 115);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 1;
@@ -681,7 +729,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 86);
+            this.label11.Location = new System.Drawing.Point(29, 115);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 0;
@@ -690,7 +738,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(30, 48);
+            this.label9.Location = new System.Drawing.Point(29, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 0;
@@ -698,7 +746,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(583, 567);
+            this.btnSave.Location = new System.Drawing.Point(468, 567);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 46);
             this.btnSave.TabIndex = 4;
@@ -716,12 +764,23 @@
             this.btnReboot.UseVisualStyleBackColor = true;
             this.btnReboot.Click += new System.EventHandler(this.btnReboot_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(595, 567);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(94, 46);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "关闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 643);
             this.Controls.Add(this.btnReboot);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
@@ -787,22 +846,26 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTPDU;
+        private System.Windows.Forms.TextBox tbMerchantNo;
+        private System.Windows.Forms.TextBox tbTerminalNo;
+        private System.Windows.Forms.TextBox tbServerPort;
+        private System.Windows.Forms.TextBox tbServerIP;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lbSystemVersion;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.RadioButton rbCloseSwitch;
+        private System.Windows.Forms.RadioButton rbReboot;
+        private System.Windows.Forms.RadioButton rbTurnoff;
+        private System.Windows.Forms.Label lbTurnoffOrRebootTime;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbTurnoffOrRebootTime;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox cbAutoRun;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbTransName;
+        private System.Windows.Forms.CheckBox cbIsUseNetwork;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 
