@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,7 @@ namespace ConfigDemo
         private void Form1_Load(object sender, EventArgs e)
         {
             iniclass = new INIClass(System.AppDomain.CurrentDomain.BaseDirectory + "FrameWorks.ini");
+            tbMainFilePath.Text = System.AppDomain.CurrentDomain.BaseDirectory + "DHRQPayment.exe";
             if (string.IsNullOrEmpty(tbTransName.Text))
             {
                 tbTransName.Text = "DHRQPayment";
@@ -102,6 +105,7 @@ namespace ConfigDemo
             try
             {
                 iniclass.IniWriteValue("AppData", "AutoRun", (Convert.ToInt32(cbAutoRun.Checked)).ToString());
+                SetAutoRunCtrlRegInfo(cbAutoRun.Checked);
                 if(rbCloseSwitch.Checked)
                 {
                     iniclass.IniWriteValue("AppData", "CloseAcmSwitch", "0");
@@ -278,6 +282,51 @@ namespace ConfigDemo
             tbServerPort.Enabled = cbIsUseNetwork.Checked;
             tbMerchantNo.Enabled = cbIsUseNetwork.Checked;
         }
+
+        /// <summary>
+        /// 创建注册表自运行批处理文件
+        /// </summary>
+        /// <returns></returns>
+        protected bool SetAutoRunCtrlRegInfo(bool isApp)
+        {
+            //RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", true);
+            RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            if (reg == null)
+                reg = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+
+            if (isApp)
+                reg.SetValue("Payment.exe", tbMainFilePath.Text);
+            else
+            {
+                if (reg.GetValue("Payment.exe") != null)
+                {
+                    reg.DeleteValue("Payment.exe");
+                }
+            }
+            if (reg.GetValue("DHRQPayment.exe") != null)
+            {
+                reg.DeleteValue("DHRQPayment.exe");
+            }
+
+            reg.Close();
+            return true;
+
+        }
+
+        private void btnGetMainFilename_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Application.StartupPath;
+            openFileDialog.Filter = "所有文件|*.exe";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbMainFilePath.Text = openFileDialog.FileName;
+
+            }
+        }
+
 
     }
 }

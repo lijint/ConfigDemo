@@ -84,6 +84,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReboot = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbMainFilePath = new System.Windows.Forms.TextBox();
+            this.btnGetMainFilename = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpHardware.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -102,10 +105,10 @@
             this.tabControl1.Controls.Add(this.tpHardware);
             this.tabControl1.Controls.Add(this.tpSystem);
             this.tabControl1.Controls.Add(this.tpTerminal);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(9, 66);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 518);
+            this.tabControl1.Size = new System.Drawing.Size(882, 480);
             this.tabControl1.TabIndex = 3;
             // 
             // tpHardware
@@ -117,7 +120,7 @@
             this.tpHardware.Location = new System.Drawing.Point(4, 22);
             this.tpHardware.Name = "tpHardware";
             this.tpHardware.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHardware.Size = new System.Drawing.Size(874, 492);
+            this.tpHardware.Size = new System.Drawing.Size(874, 454);
             this.tpHardware.TabIndex = 0;
             this.tpHardware.Text = "硬件参数配置";
             this.tpHardware.UseVisualStyleBackColor = true;
@@ -473,7 +476,7 @@
             this.tpSystem.Location = new System.Drawing.Point(4, 22);
             this.tpSystem.Name = "tpSystem";
             this.tpSystem.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSystem.Size = new System.Drawing.Size(874, 492);
+            this.tpSystem.Size = new System.Drawing.Size(874, 450);
             this.tpSystem.TabIndex = 1;
             this.tpSystem.Text = "系统参数配置";
             this.tpSystem.UseVisualStyleBackColor = true;
@@ -622,7 +625,7 @@
             this.tpTerminal.Controls.Add(this.groupBox5);
             this.tpTerminal.Location = new System.Drawing.Point(4, 22);
             this.tpTerminal.Name = "tpTerminal";
-            this.tpTerminal.Size = new System.Drawing.Size(874, 492);
+            this.tpTerminal.Size = new System.Drawing.Size(874, 450);
             this.tpTerminal.TabIndex = 2;
             this.tpTerminal.Text = "业务信息配置";
             this.tpTerminal.UseVisualStyleBackColor = true;
@@ -774,11 +777,41 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(80, 31);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(56, 16);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "主程序";
+            // 
+            // tbMainFilePath
+            // 
+            this.tbMainFilePath.Location = new System.Drawing.Point(142, 32);
+            this.tbMainFilePath.Name = "tbMainFilePath";
+            this.tbMainFilePath.Size = new System.Drawing.Size(643, 21);
+            this.tbMainFilePath.TabIndex = 7;
+            // 
+            // btnGetMainFilename
+            // 
+            this.btnGetMainFilename.Location = new System.Drawing.Point(791, 30);
+            this.btnGetMainFilename.Name = "btnGetMainFilename";
+            this.btnGetMainFilename.Size = new System.Drawing.Size(75, 23);
+            this.btnGetMainFilename.TabIndex = 8;
+            this.btnGetMainFilename.Text = "浏览";
+            this.btnGetMainFilename.UseVisualStyleBackColor = true;
+            this.btnGetMainFilename.Click += new System.EventHandler(this.btnGetMainFilename_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 643);
+            this.Controls.Add(this.btnGetMainFilename);
+            this.Controls.Add(this.tbMainFilePath);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.btnReboot);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -805,6 +838,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -866,6 +900,9 @@
         private System.Windows.Forms.TextBox tbTransName;
         private System.Windows.Forms.CheckBox cbIsUseNetwork;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tbMainFilePath;
+        private System.Windows.Forms.Button btnGetMainFilename;
     }
 }
 
