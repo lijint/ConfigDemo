@@ -106,20 +106,21 @@ namespace ConfigDemo
             {
                 iniclass.IniWriteValue("AppData", "AutoRun", (Convert.ToInt32(cbAutoRun.Checked)).ToString());
                 SetAutoRunCtrlRegInfo(cbAutoRun.Checked);
-                if(rbCloseSwitch.Checked)
+
+                iniclass.IniWriteValue("AppData", "CloseAcmSwitch", (Convert.ToInt32(!rbCloseSwitch.Checked)).ToString());
+
+                if(!rbCloseSwitch.Checked)
                 {
-                    iniclass.IniWriteValue("AppData", "CloseAcmSwitch", "0");
-                }
-                else
-                {
-                    if(rbTurnoff.Checked)
-                    {
-                        iniclass.IniWriteValue("AppData", "CloseAcmType", "0");
-                    }
-                    else
-                    {
-                        iniclass.IniWriteValue("AppData", "CloseAcmType", "1");
-                    }
+                    iniclass.IniWriteValue("AppData", "CloseAcmType", (Convert.ToInt32(!rbTurnoff.Checked)).ToString());
+
+                    //if(rbTurnoff.Checked)
+                    //{
+                    //    iniclass.IniWriteValue("AppData", "CloseAcmType", "0");
+                    //}
+                    //else
+                    //{
+                    //    iniclass.IniWriteValue("AppData", "CloseAcmType", "1");
+                    //}
                     iniclass.IniWriteValue("AppData", "CloseAcmTime", tbTurnoffOrRebootTime.Text);
                 }
 
